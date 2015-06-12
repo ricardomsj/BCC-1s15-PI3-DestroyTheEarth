@@ -83,15 +83,15 @@ void AtualizarInimigos(NavesInimigas inimigos[], int tamanho, NaveEspacial nave)
 			if(disx > disy){
 				if(inimigos[i].y <= nave.y){
 					if((disy / (disx / inimigos[i].velocidade)) > 4)
-					inimigos[i].y += 4;
+						inimigos[i].y += 4;
 					else
-					inimigos[i].y += disy / (disx / inimigos[i].velocidade);
+						inimigos[i].y += disy / (disx / inimigos[i].velocidade);
 				}
 				if(inimigos[i].y > nave.y){
 					if((disy / (disx / inimigos[i].velocidade)) > 4)
-					inimigos[i].y -= 4;
+						inimigos[i].y -= 4;
 					else
-					inimigos[i].y -= disy / (disx / inimigos[i].velocidade);
+						inimigos[i].y -= disy / (disx / inimigos[i].velocidade);
 				}
 				if(inimigos[i].x <= nave.x)
 					inimigos[i].x += inimigos[i].velocidade;

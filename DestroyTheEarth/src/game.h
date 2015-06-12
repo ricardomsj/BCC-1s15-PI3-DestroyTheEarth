@@ -11,7 +11,7 @@ int Space(){
     NavesInimigas inimigos[NUM_INIMIGOS];
     Projeteis balas_inimigas[NUM_BALAS];
 
-    /* ---- Inicialização do tamanho da nave ---- */
+    /* ---- Inicialização da nave ---- */
 
     nave.tamanho_x = al_get_bitmap_width(Ship);
     nave.tamanho_y = al_get_bitmap_height(Ship);
@@ -136,19 +136,19 @@ int Space(){
 
                 double dist_x2 = mouse.x - nave.x;
                 double dist_y2 = mouse.y - nave.y;
-                nave.angulo = atan2(dist_y2, dist_x2) + 90;
+                nave.angulo = atan2(dist_y2, dist_x2) + 89.4;
 
                 for(int w = 0; w < NUM_INIMIGOS; w++){
                     double dist_x3 = nave.x - inimigos[w].x;
                     double dist_y3 = nave.y - inimigos[w].y;
-                    inimigos[w].angulo = atan2(dist_y3, dist_x3) + 90;
+                    inimigos[w].angulo = atan2(dist_y3, dist_x3) + 89.4;
                 }
 
-                for(int xablau = 0; xablau < 10; xablau++){
+                for(int contador_bala = 0; contador_bala < 10; contador_bala++){
                     AtiraBalas(balas, NUM_BALAS, nave);
                 }
 
-                for(int xablau2 = 0; xablau2 < 10; xablau2++){
+                for(int contador_bala2 = 0; contador_bala2 < 10; contador_bala2++){
                     AtiraBalasInimigas(balas_inimigas, NUM_BALAS, inimigos);
                 }
 
