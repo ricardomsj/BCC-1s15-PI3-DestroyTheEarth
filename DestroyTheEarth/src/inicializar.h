@@ -13,10 +13,11 @@ ALLEGRO_DISPLAY *janela = NULL;
 ALLEGRO_EVENT_QUEUE *fila_eventos_tuto = NULL;
 ALLEGRO_BITMAP *Tuto = NULL;
 ALLEGRO_BITMAP *Voltar = NULL;
+ALLEGRO_EVENT_QUEUE *fila_eventos_over = NULL;
+ALLEGRO_BITMAP *GameOver = NULL;
 ALLEGRO_EVENT_QUEUE *fila_eventos_Tela1 = NULL;
 ALLEGRO_BITMAP *Tela1 = NULL;
 ALLEGRO_BITMAP *TelaEstrela = NULL;
-ALLEGRO_BITMAP *TelaEstrela2 = NULL;
 ALLEGRO_BITMAP *Planeta = NULL;
 ALLEGRO_BITMAP *Ship = NULL;
 ALLEGRO_BITMAP *Shot = NULL;
@@ -34,6 +35,7 @@ ALLEGRO_SAMPLE *intro = NULL;
 ALLEGRO_SAMPLE *tiro = NULL;
 ALLEGRO_FONT *fonte1 = NULL;
 ALLEGRO_FONT *fonte = NULL;
+ALLEGRO_BITMAP *Mira = NULL;
 
 typedef struct {
   unsigned char ***quadro;
@@ -145,6 +147,7 @@ camera *camera_inicializa(int i) {
 
       camera_converte(cam, image);
     }
+    
     else
       cvReleaseCapture(&capture);
   }
@@ -247,6 +250,13 @@ bool inicializar(){
     if(!fila_eventos_tuto){
         fprintf(stderr, "Falha ao criar fila de eventos de tutorial.\n");
         camera_finaliza(cam);
+    return false;
+    }
+
+    fila_eventos_over = al_create_event_queue();
+
+    if(!fila_eventos_over){
+        fprintf(stderr, "Falha ao criar fila de eventos de tutorial.\n");
     return false;
     }
 
@@ -372,6 +382,18 @@ bool inicializar(){
     return false;
     }
 
+    Mira = al_load_bitmap("Mira.png");
+
+    if(!Mira){
+        fprintf(stderr, "Falha ao carregar imagem de Mira.\n");
+        camera_finaliza(cam);
+        al_destroy_timer(timer);
+        al_destroy_event_queue(fila_eventos_menu);
+        al_destroy_event_queue(fila_eventos_Tela1);
+        al_destroy_display(janela);
+    return false;
+    }
+
     Shot = al_load_bitmap("Shot.png");
 
     if(!Shot){
@@ -399,17 +421,6 @@ bool inicializar(){
     TelaEstrela = al_load_bitmap("Estrelas.png");
 
     if(!TelaEstrela){
-        fprintf(stderr, "Falha ao carregar imagem do fundo estrelas.\n");
-        camera_finaliza(cam);
-        al_destroy_timer(timer);
-        al_destroy_event_queue(fila_eventos_menu);
-        al_destroy_display(janela);
-    return false;
-    }
-
-    TelaEstrela2 = al_load_bitmap("Estrelas.png");
-
-    if(!TelaEstrela2){
         fprintf(stderr, "Falha ao carregar imagem do fundo estrelas.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
@@ -492,6 +503,15 @@ bool inicializar(){
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
         al_destroy_event_queue(fila_eventos_Tela1);
+        al_destroy_display(janela);
+    return false;
+    }
+
+    GameOver = al_load_bitmap("GameOver.png");
+
+    if(!GameOver){
+        fprintf(stderr, "Falha ao carregar imagem de game over.\n");
+        al_destroy_event_queue(fila_eventos_over);
         al_destroy_display(janela);
     return false;
     }
@@ -585,11 +605,15 @@ bool inicializar(){
     al_register_event_source(fila_eventos_tuto, al_get_mouse_event_source());
     al_register_event_source(fila_eventos_tuto, al_get_display_event_source(janela));
     al_register_event_source(fila_eventos_tuto, al_get_timer_event_source(timer_tuto));
+
+    al_register_event_source(fila_eventos_over, al_get_keyboard_event_source());
+    al_register_event_source(fila_eventos_over, al_get_mouse_event_source());
+    al_register_event_source(fila_eventos_over, al_get_display_event_source(janela));
     
     al_register_event_source(fila_eventos_Tela1, al_get_keyboard_event_source());
     al_register_event_source(fila_eventos_Tela1, al_get_mouse_event_source());
     al_register_event_source(fila_eventos_Tela1, al_get_display_event_source(janela));
-    al_register_event_source(fila_eventos_Tela1, al_get_timer_event_source(timer));
+    al_register_event_source(fila_eventos_Tela1, al_get_timer_event_source(timer)); 
 
     return true;
 }

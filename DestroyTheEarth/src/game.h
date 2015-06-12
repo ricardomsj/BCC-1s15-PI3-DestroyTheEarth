@@ -33,7 +33,7 @@ int Space(){
 
     /* ---------------------- */
 
-    //al_hide_mouse_cursor(janela);
+    al_hide_mouse_cursor(janela);
     al_start_timer(timer);
 
     /* ---------------------- */
@@ -48,13 +48,13 @@ int Space(){
             if(evento_Jogo.type == ALLEGRO_EVENT_KEY_DOWN){
                 if(evento_Jogo.keyboard.keycode == ALLEGRO_KEY_ESCAPE){
                     printf("Jogador pressionou ESC!\n");
-                    return -1;
+                    return 4;
                 }
             }
 
             else if(evento_Jogo.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
                 printf("Jogador fechou a janela!\n");
-                return -1;
+                return 4;
             }
 
             else if(evento_Jogo.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN){
@@ -160,9 +160,8 @@ int Space(){
                 nave.vidas -= InimigoColidido(inimigos, NUM_INIMIGOS, nave);
                 nave.pontos += BalaColidida(balas, NUM_BALAS, inimigos, NUM_INIMIGOS, nave);
 
-                if(nave.vidas <= 0){
-                	return -1;
-                }
+                if(nave.vidas <= 0)
+                    return 3;
 
                 desenha = true;
             }
@@ -183,6 +182,7 @@ int Space(){
                 DesenhaBalas(balas, NUM_BALAS, nave);
                 DesenhaBalasInimigas(balas_inimigas, NUM_BALAS, inimigos);
                 DesenhaInimigos(inimigos, NUM_INIMIGOS, nave);
+                al_draw_bitmap(Mira, mouse.x, mouse.y, 0);
                 al_flip_display();
                 al_draw_bitmap(Tela1, 0, 0, 0);
                 al_draw_bitmap(TelaEstrela, x_estrela, 0, 0);
@@ -194,27 +194,8 @@ int Space(){
     }
 
     al_stop_timer(timer);
-    al_unregister_event_source(fila_eventos_Tela1, al_get_timer_event_source(timer));
-    al_destroy_timer(timer);
-    al_destroy_font(fonte);
-    al_destroy_font(fonte1);
-    al_destroy_bitmap(Hud1);
-    al_destroy_bitmap(Hud2);
-    al_destroy_bitmap(Hud3);
-    al_destroy_bitmap(Hud4);
-    al_destroy_bitmap(Hud5);
-    al_destroy_bitmap(Shot);
-    al_destroy_sample(tiro);
-    al_destroy_bitmap(Ship);
-    al_destroy_bitmap(Tela1);
-    al_destroy_bitmap(TelaEstrela);
-    al_destroy_bitmap(TelaEstrela2);
-    al_destroy_bitmap(Planeta);
     al_unregister_event_source(fila_eventos_Tela1, al_get_display_event_source(janela));
-    al_destroy_display(janela);
-    al_destroy_event_queue(fila_eventos_Tela1);
-    al_uninstall_system();
-    camera_finaliza(cam);
-
-    return -1;
+    al_unregister_event_source(fila_eventos_Tela1, al_get_timer_event_source(timer));
+    al_unregister_event_source(fila_eventos_Tela1, al_get_keyboard_event_source());
+    al_unregister_event_source(fila_eventos_Tela1, al_get_mouse_event_source());
 }

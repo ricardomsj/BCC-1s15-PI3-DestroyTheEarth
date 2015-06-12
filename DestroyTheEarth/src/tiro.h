@@ -82,7 +82,7 @@ void DesenhaBalasInimigas(Projeteis balas[], int tamanho, NavesInimigas inimigos
 }
 
 int BalaColidida(Projeteis balas[], int b_tamanho, NavesInimigas inimigos[], int i_tamanho, NaveEspacial nave){
-	int pontos = 0,aumenta = 5;
+	int pontos = 0, aumenta = 5, vel = i_tamanho;
 	
 	if (nave.pontos > 50 && nave.pontos <= 100)
 		aumenta = 10;
@@ -98,7 +98,6 @@ int BalaColidida(Projeteis balas[], int b_tamanho, NavesInimigas inimigos[], int
 	
 	if (nave.pontos > 400)
 		aumenta = 100;
-
 	
 	for(int i = 0; i < b_tamanho; i++){
 
@@ -122,5 +121,5 @@ int BalaColidida(Projeteis balas[], int b_tamanho, NavesInimigas inimigos[], int
 		}
 	}
 
-	return (pontos);
+	return pontos;
 }

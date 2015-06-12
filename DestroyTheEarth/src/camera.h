@@ -106,7 +106,7 @@ Cursor converte_HSV(camera *cam, Cursor mouse){
       int iS = S * 1.0;
       int iV = V * 1.0;
 
-      if(iH >= 30 && iS >= 50 && iV >= 70){
+      if(iH <= 30 && iS >= 50 && iV >= 70){
         cx += x;
         cy += y;
         cn += 1;

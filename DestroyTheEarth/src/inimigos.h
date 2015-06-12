@@ -161,5 +161,5 @@ int InimigoColidido(NavesInimigas inimigos[], int i_tamanho, NaveEspacial nave){
 		}
 	}
 
-	return(perdeuvida);
+	return perdeuvida;
 }

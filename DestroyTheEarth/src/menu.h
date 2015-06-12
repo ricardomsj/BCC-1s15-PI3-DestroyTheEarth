@@ -33,7 +33,7 @@ int MenuPrincipal(){
                 else if(mouse.x >= 594 && mouse.x <= 687 && mouse.y >= 624 && mouse.y <= 662){
                     if(eventoMenu.mouse.button & 1){
                         al_destroy_sample(intro);
-                        return -1;
+                        return 4;
                     }
                 }
             }
@@ -41,13 +41,13 @@ int MenuPrincipal(){
             else if(eventoMenu.type == ALLEGRO_EVENT_KEY_DOWN){
                 if(eventoMenu.keyboard.keycode == ALLEGRO_KEY_ESCAPE){
                     al_destroy_sample(intro);
-                    return -1;
+                    return 4;
                 }
             }
 
             else if(eventoMenu.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
                 al_destroy_sample(intro);
-            	return -1;
+            	return 4;
             }
 
             else if(eventoMenu.type == ALLEGRO_EVENT_TIMER){
@@ -94,7 +94,7 @@ int MenuPrincipal(){
                     Exit = false;
                 }
 
-                al_draw_bitmap(Shot, mouse.x, mouse.y, 0);
+                al_draw_bitmap(Mira, mouse.x, mouse.y, 0);
 
                 al_flip_display();
                 al_draw_bitmap(Menu, 0, 0, 0);
@@ -106,13 +106,7 @@ int MenuPrincipal(){
 
     al_stop_timer(timer_menu);
     al_unregister_event_source(fila_eventos_menu, al_get_timer_event_source(timer_menu));
-    al_destroy_timer(timer_menu);
     al_unregister_event_source(fila_eventos_menu, al_get_keyboard_event_source());
     al_unregister_event_source(fila_eventos_menu, al_get_mouse_event_source());
-    al_destroy_bitmap(Menu);
-    al_destroy_bitmap(NewGame);
-    al_destroy_bitmap(Tutorial);
-    al_destroy_bitmap(Sair);
     al_unregister_event_source(fila_eventos_menu, al_get_display_event_source(janela));
-    al_destroy_event_queue(fila_eventos_menu);
 }

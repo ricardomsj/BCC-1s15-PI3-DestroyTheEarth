@@ -25,13 +25,13 @@ int TelaTutorial(){
             else if(eventoTuto.type == ALLEGRO_EVENT_KEY_DOWN){
                 if(eventoTuto.keyboard.keycode == ALLEGRO_KEY_ESCAPE){
                     al_destroy_sample(intro);
-                    return -1;
+                    return 4;
                 }
             }
 
             else if(eventoTuto.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
                 al_destroy_sample(intro);
-                return -1;
+                return 4;
             }
 
             else if(eventoTuto.type == ALLEGRO_EVENT_TIMER){
@@ -55,7 +55,7 @@ int TelaTutorial(){
                     voltar = false;
                 }
 
-                al_draw_bitmap(Shot, mouse.x, mouse.y, 0);
+                al_draw_bitmap(Mira, mouse.x, mouse.y, 0);
 
                 al_flip_display();
                 al_draw_bitmap(Tuto, 0, 0, 0);
@@ -67,11 +67,7 @@ int TelaTutorial(){
 
     al_stop_timer(timer_tuto);
     al_unregister_event_source(fila_eventos_tuto, al_get_timer_event_source(timer_tuto));
-    al_destroy_timer(timer_tuto);
     al_unregister_event_source(fila_eventos_tuto, al_get_keyboard_event_source());
     al_unregister_event_source(fila_eventos_tuto, al_get_mouse_event_source());
-    al_destroy_bitmap(Tuto);
-    al_destroy_bitmap(Voltar);
     al_unregister_event_source(fila_eventos_tuto, al_get_display_event_source(janela));
-    al_destroy_event_queue(fila_eventos_tuto);
 }

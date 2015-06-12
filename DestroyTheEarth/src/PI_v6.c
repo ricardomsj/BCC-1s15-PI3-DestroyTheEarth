@@ -18,6 +18,8 @@
 #include "hud.h"
 #include "inimigos.h"
 #include "game.h"
+#include "over.h"
+#include "finaliza.h"
 
 int main(){
 	int i = 0;
@@ -34,6 +36,12 @@ int main(){
 
 	    if(i == 2)
 	    	i = TelaTutorial();
+
+	    if(i == 3)
+	    	i = gameOver();
+
+	    if(i == 4)
+	    	i = Finaliza();
 	}
 
     return 0;
