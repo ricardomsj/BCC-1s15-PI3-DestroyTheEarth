@@ -24,8 +24,8 @@
 <ul>
 <li>Abra o terminal;</li>
 <li>Entre na pasta do <strong>repositório</strong>;</li>
-<li>Entre na pasta <strong>instalacao</strong>;</li>
-<li>Entre na pasta <strong>opencv</strong>;</li>
+<li>Entre na pasta <strong><i>instalacao</i></strong>;</li>
+<li>Entre na pasta <strong><i>opencv</i></strong>;</li>
 </ul>
 <h5></h5>
 <pre><code>cd BCC-1s15-PI3-DestroyTheEarth/instalacao/opencv
@@ -42,8 +42,8 @@
 <ul>
 <li>Abra o terminal;</li>
 <li>Entre na pasta do <strong>repositório</strong>;</li>
-<li>Entre na pasta <strong>instalacao</strong>;</li>
-<li>Entre na pasta <strong>allegro5</strong>;</li>
+<li>Entre na pasta <strong><i>instalacao</i></strong>;</li>
+<li>Entre na pasta <strong><i>allegro5</i></strong>;</li>
 </ul>
 <h5></h5>
 <pre><code>cd BCC-1s15-PI3-DestroyTheEarth/instalacao/allegro5
