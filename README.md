@@ -23,7 +23,7 @@
 <p>Instale o OpenCV.</p>
 <ul>
 <li>Abra o terminal;</li>
-<li>Entre na pasta do <strong>repositório</strong>;</li>
+<li>Entre na pasta do repositório;</li>
 <li>Entre na pasta <strong><i>instalacao</i></strong>;</li>
 <li>Entre na pasta <strong><i>opencv</i></strong>;</li>
 </ul>
@@ -41,7 +41,7 @@
 <p>Instale o Allegro5.</p>
 <ul>
 <li>Abra o terminal;</li>
-<li>Entre na pasta do <strong>repositório</strong>;</li>
+<li>Entre na pasta do repositório;</li>
 <li>Entre na pasta <strong><i>instalacao</i></strong>;</li>
 <li>Entre na pasta <strong><i>allegro5</i></strong>;</li>
 </ul>
@@ -59,8 +59,8 @@
 <p>Compile e execute o jogo.</p>
 <ul>
 <li>Abra o terminal;</li>
-<li>Entre na pasta do <strong>repositório</strong>;</li>
-<li>Entre na pasta <strong>DestroyTheEarth</strong>;</li>
+<li>Entre na pasta do repositório;</li>
+<li>Entre na pasta <strong><i>DestroyTheEarth</i></strong>;</li>
 </ul>
 <h5></h5>
 <pre><code>cd BCC-1s15-PI3-DestroyTheEarth/DestroyTheEarth
