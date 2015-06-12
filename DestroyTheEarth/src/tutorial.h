@@ -1,8 +1,8 @@
-int TelaTutorial(){
+int telaTutorial(){
     bool desenha = false, voltar = false;
 
     Cursor mouse;
-    
+
     al_hide_mouse_cursor(janela);
     al_start_timer(timer_tuto);
 
@@ -36,7 +36,7 @@ int TelaTutorial(){
 
             else if(eventoTuto.type == ALLEGRO_EVENT_TIMER){
 
-                
+
                 /* Voltar */
 
                 if(mouse.x >= 1130 && mouse.x <= 1266 && mouse.y >= 670 && mouse.y <= 720)

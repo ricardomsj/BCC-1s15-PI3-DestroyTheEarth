@@ -1,8 +1,8 @@
-int MenuPrincipal(){
+int menuPrincipal(){
     bool desenha = false, NG = false, Tuto = false, Exit = false;
 
     Cursor mouse;
-    
+
     al_hide_mouse_cursor(janela);
     al_start_timer(timer_menu);
 
@@ -52,7 +52,7 @@ int MenuPrincipal(){
 
             else if(eventoMenu.type == ALLEGRO_EVENT_TIMER){
 
-                
+
                 /* New Game */
 
                 if(mouse.x >= 522 && mouse.x <= 758 && mouse.y >= 502 && mouse.y <= 540)

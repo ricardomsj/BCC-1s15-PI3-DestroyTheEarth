@@ -1,10 +1,10 @@
-int Space(){
+int Jogo(){
     bool desenha = false, encontro = false, encontro2 = false;
-    int x_estrela = 0, x_estrela2 = 1280, x_planeta = 0, x_planeta2 = 1280;
+    int x_estrela = 0, x_planeta = 0;
     double mouse_x, mouse_y, dist_x, dist_y;
 
     /* ---------------------- */
-    
+
     Cursor mouse;
     NaveEspacial nave;
     Projeteis balas[NUM_BALAS];
@@ -47,13 +47,11 @@ int Space(){
 
             if(evento_Jogo.type == ALLEGRO_EVENT_KEY_DOWN){
                 if(evento_Jogo.keyboard.keycode == ALLEGRO_KEY_ESCAPE){
-                    printf("Jogador pressionou ESC!\n");
                     return 4;
                 }
             }
 
             else if(evento_Jogo.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
-                printf("Jogador fechou a janela!\n");
                 return 4;
             }
 
@@ -185,7 +183,7 @@ int Space(){
                 al_draw_bitmap(Mira, mouse.x, mouse.y, 0);
                 al_flip_display();
                 al_draw_bitmap(Tela1, 0, 0, 0);
-                al_draw_bitmap(TelaEstrela, x_estrela, 0, 0);
+                al_draw_bitmap(Estrela, x_estrela, 0, 0);
                 al_draw_bitmap(Planeta, x_planeta, 0, 0);
 
                 desenha = false;

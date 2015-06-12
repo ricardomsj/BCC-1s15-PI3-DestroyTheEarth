@@ -29,13 +29,13 @@ int main(){
 
 	while(i >= 0){
 		if(i == 0)
-			i = MenuPrincipal();
+			i = menuPrincipal();
 
 	    if(i == 1)
-	    	i = Space();
+	    	i = Jogo();
 
 	    if(i == 2)
-	    	i = TelaTutorial();
+	    	i = telaTutorial();
 
 	    if(i == 3)
 	    	i = gameOver();

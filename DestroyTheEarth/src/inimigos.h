@@ -26,7 +26,7 @@ void LiberaInimigos(NavesInimigas inimigos[], int tamanho){
 
 				if(aleatorio > 2)
 					inimigos[i].x = 1280;
-				 
+
 				inimigos[i].y = rand() % ALT;
 				inimigos[i].ativo = true;
 				break;
@@ -56,13 +56,13 @@ void AtualizarInimigos(NavesInimigas inimigos[], int tamanho, NaveEspacial nave)
 				disy = nave.y - inimigos[i].y;
 			}
 			if(disx > disy){
-				
+
 				if(inimigos[i].y <= nave.y)
 					inimigos[i].y += inimigos[i].velocidade;
-				
+
 				if(inimigos[i].y > nave.y)
 					inimigos[i].y -= inimigos[i].velocidade;
-				
+
 				if(inimigos[i].x <= nave.x){
 					if((disx / (disy / inimigos[i].velocidade)) > 4)
 						inimigos[i].x += 4;
@@ -118,12 +118,11 @@ int InimigoColidido(NavesInimigas inimigos[], int i_tamanho, NaveEspacial nave){
 	int perdeuvida = 0;
 	for(int i = 0; i < i_tamanho; i++){
 
-	
 		if(nave.angulo > 85 && nave.angulo <= 88.812546){
 
 			if(inimigos[i].y > nave.y -5 && inimigos[i].y < nave.y + 100 && inimigos[i].x > nave.x - 58 && inimigos[i].x < nave.x + 58){
 				inimigos[i].ativo = false;
-				
+
 				if(perdeuvida < 1)
 					perdeuvida++;
 			}
@@ -135,7 +134,7 @@ int InimigoColidido(NavesInimigas inimigos[], int i_tamanho, NaveEspacial nave){
 			if(inimigos[i].y > nave.y - 58 && inimigos[i].y < nave.y + 58 && inimigos[i].x < nave.x + 5 && inimigos[i].x > nave.x - 115){
 				inimigos[i].ativo = false;
 				if(perdeuvida < 1)
-					perdeuvida++;		
+					perdeuvida++;
 			}
 			//> NAVE DIREITA
 		}
@@ -155,7 +154,7 @@ int InimigoColidido(NavesInimigas inimigos[], int i_tamanho, NaveEspacial nave){
 			if(inimigos[i].y < nave.y + 5 && inimigos[i].y > nave.y - 100 && inimigos[i].x > nave.x -58 && inimigos[i].x < nave.x +58){
 				inimigos[i].ativo = false;
 				if(perdeuvida < 1)
-					perdeuvida++;		
+					perdeuvida++;
 			}
 			//V NAVE BAIXO
 		}

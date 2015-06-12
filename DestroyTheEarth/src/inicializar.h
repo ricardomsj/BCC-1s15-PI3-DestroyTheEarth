@@ -17,7 +17,7 @@ ALLEGRO_EVENT_QUEUE *fila_eventos_over = NULL;
 ALLEGRO_BITMAP *GameOver = NULL;
 ALLEGRO_EVENT_QUEUE *fila_eventos_Tela1 = NULL;
 ALLEGRO_BITMAP *Tela1 = NULL;
-ALLEGRO_BITMAP *TelaEstrela = NULL;
+ALLEGRO_BITMAP *Estrela = NULL;
 ALLEGRO_BITMAP *Planeta = NULL;
 ALLEGRO_BITMAP *Ship = NULL;
 ALLEGRO_BITMAP *Shot = NULL;
@@ -147,7 +147,7 @@ camera *camera_inicializa(int i) {
 
       camera_converte(cam, image);
     }
-    
+
     else
       cvReleaseCapture(&capture);
   }
@@ -179,18 +179,18 @@ void camera_finaliza(camera *cam) {
 bool inicializar(){
 
     camera *cam = camera_inicializa(0);
-  
+
     if(!cam){
-        fprintf(stderr, "%s\n", "Nao foi possivel inicializar camera.");
+        fprintf(stderr, "%s\n", "Não foi possível inicializar câmera.");
     return false;
     }
 
     int largura = cam->largura;
-      
+
     int altura = cam->altura;
 
     if(!al_init()){
-        fprintf(stderr, "Falha ao inicializar a Allegro.\n");
+        fprintf(stderr, "Falha ao inicializar o Allegro.\n");
         camera_finaliza(cam);
     return false;
     }
@@ -216,7 +216,7 @@ bool inicializar(){
     timer = al_create_timer(1.0 / FPS);
 
     if(!timer){
-        fprintf(stderr, "Falha ao criar timer!\n");
+        fprintf(stderr, "Falha ao criar timer.\n");
         camera_finaliza(cam);
     return false;
     }
@@ -224,7 +224,7 @@ bool inicializar(){
     timer_menu = al_create_timer(1.0 / FPS);
 
     if(!timer_menu){
-        fprintf(stderr, "Falha ao criar timer de menu!\n");
+        fprintf(stderr, "Falha ao criar timer do Menu.\n");
         camera_finaliza(cam);
     return false;
     }
@@ -232,7 +232,7 @@ bool inicializar(){
     timer_tuto = al_create_timer(1.0 / FPS);
 
     if(!timer_tuto){
-        fprintf(stderr, "Falha ao criar timer de tutorial!\n");
+        fprintf(stderr, "Falha ao criar timer de Tutorial.\n");
         camera_finaliza(cam);
     return false;
     }
@@ -240,7 +240,7 @@ bool inicializar(){
     fila_eventos_menu = al_create_event_queue();
 
     if(!fila_eventos_menu){
-        fprintf(stderr, "Falha ao criar fila de eventos de menu.\n");
+        fprintf(stderr, "Falha ao criar fila de eventos do Menu.\n");
         camera_finaliza(cam);
     return false;
     }
@@ -248,7 +248,7 @@ bool inicializar(){
     fila_eventos_tuto = al_create_event_queue();
 
     if(!fila_eventos_tuto){
-        fprintf(stderr, "Falha ao criar fila de eventos de tutorial.\n");
+        fprintf(stderr, "Falha ao criar fila de eventos do Tutorial.\n");
         camera_finaliza(cam);
     return false;
     }
@@ -256,14 +256,14 @@ bool inicializar(){
     fila_eventos_over = al_create_event_queue();
 
     if(!fila_eventos_over){
-        fprintf(stderr, "Falha ao criar fila de eventos de tutorial.\n");
+        fprintf(stderr, "Falha ao criar fila de eventos do Game Over.\n");
     return false;
     }
 
     fila_eventos_Tela1 = al_create_event_queue();
 
     if(!fila_eventos_Tela1){
-        fprintf(stderr, "Falha ao criar fila de eventos de Tela1.\n");
+        fprintf(stderr, "Falha ao criar fila de eventos da Tela1.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -298,7 +298,7 @@ bool inicializar(){
 
     // Inicialização do add-on para uso de fontes
     al_init_font_addon();
- 
+
     // Inicialização do add-on para uso de fontes True Type
     if (!al_init_ttf_addon()){
         fprintf(stderr, "Falha ao inicializar add-on allegro_ttf.\n");
@@ -324,7 +324,7 @@ bool inicializar(){
         return false;
     }
 
-    tiro = al_load_sample("shot.ogg");
+    tiro = al_load_sample("files/sounds/shot.ogg");
 
     if (!tiro){
         fprintf(stderr, "Falha ao carregar tiro.\n");
@@ -335,10 +335,10 @@ bool inicializar(){
         return false;
     }
 
-    intro = al_load_sample("intro.ogg");
+    intro = al_load_sample("files/sounds/intro.ogg");
 
     if(!intro){
-        fprintf(stderr, "Falha ao carregar musica de introducao.\n");
+        fprintf(stderr, "Falha ao carregar música de introdução.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -358,10 +358,10 @@ bool inicializar(){
     return false;
     }
 
-    Ship = al_load_bitmap("Ship.png");
+    Ship = al_load_bitmap("files/images/characters/Ship.png");
 
     if(!Ship){
-        fprintf(stderr, "Falha ao carregar imagem de Nave.\n");
+        fprintf(stderr, "Falha ao carregar imagem da Nave.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -370,10 +370,10 @@ bool inicializar(){
     return false;
     }
 
-    Enemy = al_load_bitmap("Enemy.png");
+    Enemy = al_load_bitmap("files/images/characters/Enemy.png");
 
     if(!Enemy){
-        fprintf(stderr, "Falha ao carregar imagem de Inimigo.\n");
+        fprintf(stderr, "Falha ao carregar imagem do Inimigo.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -382,10 +382,10 @@ bool inicializar(){
     return false;
     }
 
-    Mira = al_load_bitmap("Mira.png");
+    Mira = al_load_bitmap("files/images/characters/Mira.png");
 
     if(!Mira){
-        fprintf(stderr, "Falha ao carregar imagem de Mira.\n");
+        fprintf(stderr, "Falha ao carregar imagem da Mira.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -394,10 +394,10 @@ bool inicializar(){
     return false;
     }
 
-    Shot = al_load_bitmap("Shot.png");
+    Shot = al_load_bitmap("files/images/characters/Shot.png");
 
     if(!Shot){
-        fprintf(stderr, "Falha ao carregar imagem de Tiro.\n");
+        fprintf(stderr, "Falha ao carregar imagem do Tiro.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -406,10 +406,10 @@ bool inicializar(){
     return false;
     }
 
-    Tela1 = al_load_bitmap("Fundo.png");
+    Tela1 = al_load_bitmap("files/images/screen/Fundo.png");
 
     if(!Tela1){
-        fprintf(stderr, "Falha ao carregar imagem de Galáxia de Andrômeda.\n");
+        fprintf(stderr, "Falha ao carregar imagem do Fundo.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -418,10 +418,10 @@ bool inicializar(){
     return false;
     }
 
-    TelaEstrela = al_load_bitmap("Estrelas.png");
+    Estrela = al_load_bitmap("files/images/screen/Estrelas.png");
 
-    if(!TelaEstrela){
-        fprintf(stderr, "Falha ao carregar imagem do fundo estrelas.\n");
+    if(!Estrela){
+        fprintf(stderr, "Falha ao carregar imagem das Estrelas.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -429,10 +429,10 @@ bool inicializar(){
     return false;
     }
 
-    Planeta = al_load_bitmap("Planeta1.png");
+    Planeta = al_load_bitmap("files/images/screen/Planeta.png");
 
     if(!Planeta){
-        fprintf(stderr, "Falha ao carregar imagem do fundo planeta1.\n");
+        fprintf(stderr, "Falha ao carregar imagem dos Planetas.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -440,10 +440,10 @@ bool inicializar(){
     return false;
     }
 
-    Hud1 = al_load_bitmap("1.png");
+    Hud1 = al_load_bitmap("files/images/hud/1.png");
 
     if(!Hud1){
-        fprintf(stderr, "Falha ao carregar imagem do hud1.\n");
+        fprintf(stderr, "Falha ao carregar imagem 1 do hud.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -451,10 +451,10 @@ bool inicializar(){
     return false;
     }
 
-    Hud2 = al_load_bitmap("2.png");
+    Hud2 = al_load_bitmap("files/images/hud/2.png");
 
     if(!Hud2){
-        fprintf(stderr, "Falha ao carregar imagem do hud2.\n");
+        fprintf(stderr, "Falha ao carregar imagem 2 do hud.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -462,10 +462,10 @@ bool inicializar(){
     return false;
     }
 
-    Hud3 = al_load_bitmap("3.png");
+    Hud3 = al_load_bitmap("files/images/hud/3.png");
 
     if(!Hud3){
-        fprintf(stderr, "Falha ao carregar imagem do hud3.\n");
+        fprintf(stderr, "Falha ao carregar imagem 3 do hud.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -473,10 +473,10 @@ bool inicializar(){
     return false;
     }
 
-    Hud4 = al_load_bitmap("4.png");
+    Hud4 = al_load_bitmap("files/images/hud/4.png");
 
     if(!Hud4){
-        fprintf(stderr, "Falha ao carregar imagem do hud4.\n");
+        fprintf(stderr, "Falha ao carregar imagem 4 do hud.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -484,10 +484,10 @@ bool inicializar(){
     return false;
     }
 
-    Hud5 = al_load_bitmap("5.png");
+    Hud5 = al_load_bitmap("files/images/hud/5.png");
 
     if(!Hud5){
-        fprintf(stderr, "Falha ao carregar imagem do hud5.\n");
+        fprintf(stderr, "Falha ao carregar imagem 5 do hud.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -495,10 +495,10 @@ bool inicializar(){
     return false;
     }
 
-    Tuto = al_load_bitmap("Tuto.png");
+    Tuto = al_load_bitmap("files/images/screen/Tutorial_conteudo.png");
 
     if(!Tuto){
-        fprintf(stderr, "Falha ao carregar imagem de tutorial.\n");
+        fprintf(stderr, "Falha ao carregar imagem de do conteúdo do Tutorial.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -507,31 +507,31 @@ bool inicializar(){
     return false;
     }
 
-    GameOver = al_load_bitmap("GameOver.png");
+    Voltar = al_load_bitmap("files/images/screen/Tutorial_conteudo_hover.png");
+
+    if(!Voltar){
+        fprintf(stderr, "Falha ao carregar imagem do hover do conteúdo do tutorial.\n");
+        camera_finaliza(cam);
+        al_destroy_timer(timer);
+        al_destroy_event_queue(fila_eventos_menu);
+        al_destroy_event_queue(fila_eventos_Tela1);
+        al_destroy_display(janela);
+    return false;
+    }
+
+    GameOver = al_load_bitmap("files/images/screen/GameOver.png");
 
     if(!GameOver){
-        fprintf(stderr, "Falha ao carregar imagem de game over.\n");
+        fprintf(stderr, "Falha ao carregar imagem de Game Over.\n");
         al_destroy_event_queue(fila_eventos_over);
         al_destroy_display(janela);
     return false;
     }
 
-    Voltar = al_load_bitmap("Voltar.png");
-
-    if(!Voltar){
-        fprintf(stderr, "Falha ao carregar imagem de Voltar.\n");
-        camera_finaliza(cam);
-        al_destroy_timer(timer);
-        al_destroy_event_queue(fila_eventos_menu);
-        al_destroy_event_queue(fila_eventos_Tela1);
-        al_destroy_display(janela);
-    return false;
-    }
-
-    Menu = al_load_bitmap("Menu.png");
+    Menu = al_load_bitmap("files/images/screen/Menu.png");
 
     if(!Menu){
-        fprintf(stderr, "Falha ao carregar imagem de Menu.\n");
+        fprintf(stderr, "Falha ao carregar imagem do Menu.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -540,10 +540,10 @@ bool inicializar(){
     return false;
     }
 
-    NewGame = al_load_bitmap("NewGame.png");
+    NewGame = al_load_bitmap("files/images/screen/NewGame.png");
 
     if(!NewGame){
-        fprintf(stderr, "Falha ao carregar imagem de NewGame.\n");
+        fprintf(stderr, "Falha ao carregar imagem do Novo Jogo.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -552,10 +552,10 @@ bool inicializar(){
     return false;
     }
 
-    Tutorial = al_load_bitmap("Tutorial.png");
+    Tutorial = al_load_bitmap("files/images/screen/Tutorial.png");
 
     if(!Tutorial){
-        fprintf(stderr, "Falha ao carregar imagem de Tutorial.\n");
+        fprintf(stderr, "Falha ao carregar imagem do Tutorial.\n");
         camera_finaliza(cam);
         al_destroy_timer(timer);
         al_destroy_event_queue(fila_eventos_menu);
@@ -564,7 +564,7 @@ bool inicializar(){
     return false;
     }
 
-    Sair = al_load_bitmap("Sair.png");
+    Sair = al_load_bitmap("files/images/screen/Sair.png");
 
     if(!Sair){
         fprintf(stderr, "Falha ao carregar imagem de Sair.\n");
@@ -576,7 +576,7 @@ bool inicializar(){
     return false;
     }
 
-    fonte = al_load_ttf_font("Fonte.TTF", 48, 0);
+    fonte = al_load_ttf_font("files/fonts/Fonte.TTF", 48, 0);
 
     if(!fonte){
         fprintf(stderr, "Falha ao carregar fonte.\n");
@@ -586,8 +586,8 @@ bool inicializar(){
         return false;
     }
 
-    fonte1 = al_load_ttf_font("Fonte.TTF", 30, 0);
-    
+    fonte1 = al_load_ttf_font("files/fonts/Fonte.TTF", 30, 0);
+
     if(!fonte1){
         fprintf(stderr, "Falha ao carregar fonte.\n");
         camera_finaliza(cam);
@@ -609,11 +609,11 @@ bool inicializar(){
     al_register_event_source(fila_eventos_over, al_get_keyboard_event_source());
     al_register_event_source(fila_eventos_over, al_get_mouse_event_source());
     al_register_event_source(fila_eventos_over, al_get_display_event_source(janela));
-    
+
     al_register_event_source(fila_eventos_Tela1, al_get_keyboard_event_source());
     al_register_event_source(fila_eventos_Tela1, al_get_mouse_event_source());
     al_register_event_source(fila_eventos_Tela1, al_get_display_event_source(janela));
-    al_register_event_source(fila_eventos_Tela1, al_get_timer_event_source(timer)); 
+    al_register_event_source(fila_eventos_Tela1, al_get_timer_event_source(timer));
 
     return true;
 }

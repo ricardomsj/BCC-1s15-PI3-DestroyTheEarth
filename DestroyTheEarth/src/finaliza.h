@@ -1,7 +1,7 @@
 int Finaliza(){
 
 	/* Menu */
-	
+
     al_destroy_bitmap(Menu);
     al_destroy_bitmap(NewGame);
     al_destroy_bitmap(Tutorial);
@@ -31,7 +31,7 @@ int Finaliza(){
     al_destroy_bitmap(Ship);
     al_destroy_bitmap(Tela1);
     al_destroy_bitmap(Mira);
-    al_destroy_bitmap(TelaEstrela);
+    al_destroy_bitmap(Estrela);
     al_destroy_bitmap(Planeta);
     al_destroy_display(janela);
     al_destroy_event_queue(fila_eventos_Tela1);
