@@ -29,7 +29,7 @@ int main(){
 
 	while(i >= 0){
 		if(i == 0)
-			i = menuPrincipal();
+	        i = menuPrincipal();
 
 	    if(i == 1)
 	    	i = Jogo();
