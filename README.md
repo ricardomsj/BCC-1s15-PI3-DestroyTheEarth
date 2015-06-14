@@ -16,7 +16,7 @@
 <li>Abra o terminal e execute o comando:</li>
 </ul>
 <h5></h5>
-<pre><code>git clone https://github.com/ricardomsj/BCC-1s15-PI3-DestroyTheEarth/
+<pre><code>git clone https://github.com/ricardomsj/BCC-1s15-PI3-DestroyTheEarth.git
 </code></pre>
 </li>
 <li>
