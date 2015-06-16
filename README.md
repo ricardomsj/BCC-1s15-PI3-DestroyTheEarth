@@ -1,53 +1,81 @@
-# BCC-1s15-PI3-DestroyTheEarth
-Resumo em breve.
-
----
-
-##Instalação
-
-####Requisitos:
-#####
-* Sistema operacional: Ubuntu ou distribuições derivadas.
-
-####Passo-a-passo:
-#####
-
-1. Faça o download do repositório deste projeto.
-    * Abra o terminal e execute o comando:
-    #####
-        git clone https://github.com/ricardomsj/BCC-1s15-PI3-DestroyTheEarth/
-
-2. Instale o OpenCV.
-    * Abra o terminal;
-    * Entre na pasta do repositório;
-    * Entre na pasta "instalacao";
-    * Entre na pasta "opencv";
-    #####
-        cd BCC-1s15-PI3-DestroyTheEarth/instalacao/opencv
-    * Execute o comando:
-    #####
-        ./opencv.sh
-
-3. Instale o Allegro5.
-    * Abra o terminal;
-    * Entre na pasta do repositório;
-    * Entre na pasta "instalacao";
-    * Entre na pasta "allegro5";
-    #####
-        cd BCC-1s15-PI3-DestroyTheEarth/instalacao/allegro5
-    * Execute o comando:
-    #####
-        ./allegro5.sh
-
-4. Compile e execute o jogo.
-    * Abra o terminal;
-    * Entre na pasta do repositório;
-    * Entre na pasta "DestroyTheEarth";
-    #####
-        cd BCC-1s15-PI3-DestroyTheEarth/DestroyTheEarth
-    * Execute o seguinte comando para compilar o jogo:
-    #####
-        make
-    * Execute o seguinte comando para abrir o jogo:
-    ####
-        ./pi
+<h1 id="bcc-1s15-pi3-destroytheearth">BCC-1s15-PI3-DestroyTheEarth</h1>
+<p>Resumo em breve.</p>
+<hr />
+<h2 id="instalacao">Instalação</h2>
+<h4 id="requisitos">Requisitos:</h4>
+<h5></h5>
+<ul>
+<li>Sistema operacional: Ubuntu ou distribuições derivadas.</li>
+</ul>
+<h4 id="passo-a-passo">Passo-a-passo:</h4>
+<h5></h5>
+<ol>
+<li>
+<p>Faça o download do repositório deste projeto.</p>
+<ul>
+<li>Abra o terminal e execute o comando:</li>
+</ul>
+<h5></h5>
+<pre><code>git clone https://github.com/ricardomsj/BCC-1s15-PI3-DestroyTheEarth.git
+</code></pre>
+</li>
+<li>
+<p>Instale o OpenCV.</p>
+<ul>
+<li>Abra o terminal;</li>
+<li>Entre na pasta do repositório;</li>
+<li>Entre na pasta <strong><i>instalacao</i></strong>;</li>
+<li>Entre na pasta <strong><i>opencv</i></strong>;</li>
+</ul>
+<h5></h5>
+<pre><code>cd BCC-1s15-PI3-DestroyTheEarth/instalacao/opencv
+</code></pre>
+<ul>
+<li>Execute o comando:</li>
+</ul>
+<h5></h5>
+<pre><code>./opencv.sh
+</code></pre>
+</li>
+<li>
+<p>Instale o Allegro5.</p>
+<ul>
+<li>Abra o terminal;</li>
+<li>Entre na pasta do repositório;</li>
+<li>Entre na pasta <strong><i>instalacao</i></strong>;</li>
+<li>Entre na pasta <strong><i>allegro5</i></strong>;</li>
+</ul>
+<h5></h5>
+<pre><code>cd BCC-1s15-PI3-DestroyTheEarth/instalacao/allegro5
+</code></pre>
+<ul>
+<li>Execute o comando:</li>
+</ul>
+<h5></h5>
+<pre><code>./allegro5.sh
+</code></pre>
+</li>
+<li>
+<p>Compile e execute o jogo.</p>
+<ul>
+<li>Abra o terminal;</li>
+<li>Entre na pasta do repositório;</li>
+<li>Entre na pasta <strong><i>DestroyTheEarth</i></strong>;</li>
+</ul>
+<h5></h5>
+<pre><code>cd BCC-1s15-PI3-DestroyTheEarth/DestroyTheEarth
+</code></pre>
+<ul>
+<li>Execute o seguinte comando para compilar o jogo:</li>
+</ul>
+<h5></h5>
+<pre><code>make
+</code></pre>
+<ul>
+<li>Execute o seguinte comando para abrir o jogo:</li>
+</ul>
+<h4></h4>
+<pre><code>./pi
+</code></pre>
+</li>
+</ol>
